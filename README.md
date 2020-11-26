@@ -1,2 +1,2 @@
-# basic_c-
+# basic_C++
 basic c++ programs
