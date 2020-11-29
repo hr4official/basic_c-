@@ -1,5 +1,5 @@
 # basic_C++
-basic c++ programs
+basic c++ programs for it students  and  Beginners
 
 1.	Write a program to generate the following series (using class fibo) :
 1   1   2    3    5   8 …..   
