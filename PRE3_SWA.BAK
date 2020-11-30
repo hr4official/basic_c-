@@ -1,0 +1,25 @@
+#include<iostream.h>
+#include<conio.h>
+class swap
+{
+	swap(int a,int b)
+	{
+
+	}
+	swap(float c,float d)
+	{
+	}
+};
+void main()
+{
+	int x,y;
+	float p,q;
+	clrscr();
+		cout<<"\n Enter the two integer no :";
+		cin>>x>>y;
+		cout<<"\n Enter the two Real No :";
+		cin>>p>>q;
+		swap s(x,y);
+		swap(p,q);
+	getch();
+}

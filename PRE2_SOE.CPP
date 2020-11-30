@@ -1,0 +1,67 @@
+#include<iostream.h>
+#include<conio.h>
+#include<string.h>
+int n;
+class number
+{
+	public:
+	int i,so,se;
+		number(float n)
+		{
+			so=0;
+			//cout<<"\n Enter the No :";
+		      //  cin>>m;
+			for(i=1;i<=n;i++)
+			{
+				if(i%2!=0)
+				{
+				   so=so+i;
+				}
+			}
+				cout<<"\n Sum of Odd No of 1 to "<<n<<" is : "<<so;
+		}
+		number(int n)
+		{
+			se=0;
+		       //	cout<<"\n Enter the No :";
+		       //	cin>>n;
+			for(i=1;i<=n;i++)
+			{
+				if(i%2==0)
+				{
+				   se=se+i;
+				}
+			}
+				cout<<"\n Sum of Even No of 1 to "<<n<<" is : "<<se;
+
+		}
+};
+void main()
+{
+	int ch,b[20],n,i;
+	float f;
+	clrscr();
+		cout<<"\n Enter the Number:";
+		cin>>n;
+		f=n;
+		cout<<"\n \t \t Menu";
+		cout<<"\n 1.sum of odd";
+		cout<<"\n 2.sum of even";
+		cout<<"\n 3.Exit";
+		do
+		{
+			cout<<"\n Enter your choice ";
+			cin>>ch;
+
+			switch(ch)
+			{
+				case 1: number m(f);
+					break;
+				case 2: number m1(n);
+					break;
+				default:
+					break;
+			}
+		}while(ch!=3);
+	getch();
+}
