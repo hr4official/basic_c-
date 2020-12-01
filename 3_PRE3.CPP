@@ -1,0 +1,89 @@
+#include<iostream.h>
+#include<conio.h>
+#include<iomanip.h>
+class salesman
+{
+	public:
+	long int sno,qs,rate,amt,comm;
+	void get();
+	void calc();
+	void print();
+	void result();
+};
+
+	void salesman :: get()
+	{
+		sp:
+		cout<<"\n enter the salesman no:";
+		cin>>sno;
+		cout<<"\n enter the quantity purchased:";
+		cin>>qs;
+		cout<<"\n enter the rate per quantity:";
+		cin>>rate;
+		if(qs<50)
+		{
+			cout<<"Quantity Purchased is less than 50:");
+			goto sp;
+		}
+	}
+	void salesman :: calc()
+	{
+		if(qs>50)
+		{
+		amt=qs*rate;
+		if(amt<=1000)
+			comm=0;
+		else if(amt>1000 && amt<=2000)
+			comm=(amt*15)/100;
+		else if(amt>2000 && amt<=4000)
+			comm=(amt*20)/100;
+		else if(amt>4000)
+			comm=(amt*25)/100;
+		}
+		else
+		{
+		cout<<"\n quqntity sold is gretar then 50:";
+		}
+	}
+	void salesman :: print()
+	{      	cout<<setw(45)<<"\n\t ABC company:";
+		cout<<setw(48)<<"\n \t salesman informantion:";
+		cout<<setw(10)<<"\n-------------------------------------------------"<<endl;
+		cout<<setw(10)<<"\n salesman no.";
+		cout<<setw(8)<<"quantity sold";
+		cout<<setw(7)<<"rate";
+		cout<<setw(7)<<"amount";
+		cout<<setw(6)<<"commition"<<endl;
+		cout<<setw(10)<<"================================================"<<endl;
+	}
+	void salesman :: result()
+	{
+		cout<<setw(10)<<sno<<setw(10)<<qs<<setw(10)<<rate<<setw(8)<<amt<<setw(10)<<comm<<endl;
+	}
+	void main()
+	{
+		salesman s[50];
+		int n,i,t1=0,t2=0,t3=0,t4=0;
+		clrscr();
+		cout<<"\n enter the no:";
+		cin>>n;
+		for(i=1;i<=n;i++)
+		{
+			s[i].get();
+			s[i].calc();
+		}
+		clrscr();
+		s->print();
+		for(i=1;i<=n;i++)
+		{
+		  t1=t1+s[i].qs;
+		  t2=t2+s[i].rate;
+		  t3=t3+s[i].amt;
+		  t4=t4+s[i].comm;
+		  s[i].result();
+		}
+		cout<<setw(10)<<"================================================="<<endl;
+		cout<<setw(10)<<"total"<<setw(10)<<t1<<setw(7)<<t2<<setw(11)<<t3<<setw(10)<<t4<<endl;
+		cout<<setw(10)<<"-------------------------------------------------"<<endl;
+		getch();
+	}

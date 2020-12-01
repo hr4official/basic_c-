@@ -1,0 +1,124 @@
+#include<iostream.h>
+#include<conio.h>
+#include<iomanip.h>
+#include<string.h>
+class student
+{
+	public:
+	int rno,m[10],i,c,tot,p,a,f;
+	char name[20],cla[20];
+	float per;
+	student()
+	{
+		c=0;
+		a=0;
+		f=0;
+		p=0;
+	}
+	void get();
+	void calc();
+	void print();
+	void result();
+};
+	void student :: get()
+	{
+		cout<<"\n enter the rollno:";
+		cin>>rno;
+		cout<<"\n enter the name:";
+		cin>>name;
+		for(i=1;i<=6;i++)
+		{
+			sp:
+			cout<<"\n enter the marks of sub"<<i<<" :";
+			cin>>m[i];
+			if(m[i]>100)
+			{
+				goto sp;
+			}
+		}
+		/*
+		cout<<"\n enter the marks:";
+		cin>>m2;
+		cout<<"\n enter the marks:";
+		cin>>m3;
+		cout<<"\n enter the marks:";
+		cin>>m4;
+		cout<<"\n enter the marks:";
+		cin>>m5;
+		cout<<"\n enter the marks:";
+		cin>>m6; */
+
+	}
+	void student :: calc()
+	{
+		tot=m[1]+m[2]+m[3]+m[4]+m[5]+m[6];
+		per=tot/6;
+		c=0;
+		for(i=1;i<=6;i++)
+		{
+			if(m[i]<40)
+			{
+				c=c+1;
+			}
+		}
+		if(c==1 || c==2)
+		{
+			strcpy(cla,"ATKT");
+			if(c==1 || c==2)
+			a=a+1;
+		}
+		if(c>2)
+		{
+			strcpy(cla,"fail");
+			if(c>2)
+			f=f+1;
+		}
+		if(c==0)
+		{
+			strcpy(cla,"pass");
+			if(c==0)
+			p=p+1;
+		}
+	}
+	void student :: print()
+	{
+		cout<<setw(50)<<"student marksheet:"<<endl;
+		cout<<setw(50)<<"##################"<<endl;
+		cout<<setw(10)<<"Number"<<setw(5)<<"Name"<<setw(5)<<"sub1"<<setw(5)<<"sub2"<<setw(5)<<"sub3"<<setw(5)<<"sub4"<<setw(5)<<"sub5"<<setw(5)<<"sub6"<<setw(5)<<"total"<<setw(5)<<"per"<<setw(5)<<"result"<<endl;
+		cout<<"-----------------------------------------------------------"<<endl;
+	}
+	void student :: result()
+	{
+		cout<<setw(10)<<rno<<setw(5)<<name<<setw(5)<<m[1]<<setw(5)<<m[2]<<setw(5)<<m[3]<<setw(5)<<m[4]<<setw(5)<<m[5]<<setw(5)<<m[6]<<setw(5)<<tot<<setw(5)<<per<<setw(5)<<cla<<endl;
+		cout<<"----------------------------------------------------------"<<endl;
+
+	}
+	void main()
+	{
+		int i,n,p1=0,f1=0,a1=0;
+		clrscr();
+		student s[50];
+		cout<<"\n enter the no:";
+		cin>>n;
+		for(i=1;i<=n;i++)
+		{
+			s[i].get();
+			s[i].calc();
+		}
+		clrscr();
+		s->print();
+
+		for(i=1;i<=n;i++)
+		{
+			s[i].result();
+			p1=p1+s[i].p;
+			f1=f1+s[i].f;
+			a1=a1+s[i].a;
+		}
+
+		cout<<setw(10)<<"total pass:"<<p1<<endl;
+		cout<<setw(10)<<"total atkt:"<<a1<<endl;
+		cout<<setw(10)<<"total fail:"<<f1<<endl;
+
+	getch();
+}
