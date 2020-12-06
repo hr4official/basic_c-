@@ -1,0 +1,77 @@
+#include<iostream.h>
+#include<conio.h>
+int n;
+class vector
+{
+	public:
+	int a[6],b[6],ad[6],m[6],s[6],h[6],p[6],i;
+	vector(int a[],int b[]);
+	void operator +();
+	void operator -();
+	void operator *();
+	void disp();
+};
+	vector :: vector(int a[],int b[])
+	{
+		for(i=1;i<=5;i++)
+		{
+			h[i]=a[i];
+			p[i]=b[i];
+		}
+	}
+	void vector :: operator +()
+	{
+		for(i=1;i<=5;i++)
+		{
+		ad[i]=h[i]+p[i];
+		}
+	}
+	void vector :: operator -()
+	{
+		for(i=1;i<=5;i++)
+		{
+		s[i]=p[i]-h[i];
+		}
+	}
+	void vector :: operator *()
+	{
+		for(i=1;i<=5;i++)
+		{
+		m[i]=h[i]*p[i];
+		}
+	}
+	void vector :: disp()
+	{
+		for(i=1;i<=n;i++)
+		{
+		cout<<"\n =============================";
+		cout<<"\n the addition of two vector is:"<<ad[i];
+		cout<<"\n the subtract of two vector is:"<<s[i];
+		cout<<"\n the multiplication of two vector is:"<<m[i];
+		cout<<"\n ===============================";
+		}
+	}
+	void main()
+	{
+		int i,a[6],b[6];
+		clrscr();
+		cout<<"\n Enter hoe many vector element :";
+		cin>>n;
+		for(i=1;i<=n;i++)
+		{
+			cout<<"\n enter the 1st vector "<<i<<" element:";
+			cin>>a[i];
+		}
+		for(i=1;i<=n;i++)
+		{
+			cout<<"\n enter the 2nd vector "<<i<<" element:";
+			cin>>b[i];
+		}
+		vector v(a,b);
+		+v;
+		-v;
+		*v;
+		clrscr();
+		v.disp();
+		getch();
+	}
