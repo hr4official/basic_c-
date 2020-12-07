@@ -1,114 +1,117 @@
-
 #include<iostream.h>
 #include<conio.h>
+#include<iomanip.h>
+#include<string.h>
 class student
 {
- public:
-    int stud_no;
-    char name[20];
-
-    void get_stud()
-    {
-    cout<<"enter student num.";
-    cin>>stud_no;
-    cout<<"enter student name";
-    cin>>name;
-    }
-    };
- class marks:public student
- {
-   public:
-   int mark[5];
-   public:
-   void get_mark()
-   {
-      for(int i=0;i<5;i++)
-      {
-	cout<<"enter mark["<<i+1<<"]"<<":";
-	cin>>mark[i];
-	while(mark[i]>100)
+	public:
+	int no,m[5],i;
+	char name[20];
+	void get()
 	{
-	 cout<<"invalid mark";
-	 cout<<"\nenter marks["<<i+1<<"]"<<":";
-	 cin>>mark[i];
-	 }
-
-       }
-    }
- };
-   class result:public marks
-   {
-    public:
-    double total, per;
-    char grade;
-    void calc()
-    {
-     total=0;
-     for(int i=0;i<5;i++)
-      {
-	total=total + mark[i];
-	per=total/5;
-	grade=1;
-	if (per<30)
-	{
-	  grade='F';
-	  }
-	  else if(per<50 && per>30)
-	     {
-	      grade='D';
-	      }
+	cout<<"\n enter the no:";
+	cin>>no;
+	cout<<"\n enter the name:";
+	cin>>name;
 
 
-	   else if(per<60 && per>50)
-	     {
-		grade='C';
-	      }
-	    else if(per<70 && per>60)
-	      {
-		grade='B';
-	      }
-
-	       else
-	       {
-		grade='A';
+	for(i=0;i<5;i++)
+		{
+		cout<<"\n enter the marks"<<i+1<<":";
+		cin>>m[i];
+			if(m[i]>100)
+			{
+				do
+				{
+					cout<<"\n invalid marks:";
+					cout<<"\n enter the marks:"<<i+1<<"=";
+					cin>>m[i];
+				}while(m[i]>100);
+			}
 		}
-	      }
-	   }
-      void disp()
-      {
-	 cout<<"\n"<<stud_no<<"\t"<<name;
-	 for(int i=0;i<5;i++)
-	 {
-	    cout<<"\t" << mark[i];
-
-	    }
-	    cout<<"\t"<<total<<"\t" <<per<<"\t"<<grade;
-       }
-
-       };
-       void main()
-       {
-//       marks m[5];
-	int n;
-
-	result r[5];
-	clrscr();
-	cout<<"enter the no ";
-	cin>>n;
-	for(int i=0;i<n;i++)
-	{
-	 //cout<<"\n"<<i+1;
-	 r[i].get_stud();
-	 r[i].get_mark();
-	 r[i].calc();
-	 }
-	 clrscr();
-	 cout<<"\n                marksheet       \n";
-	 cout<<"no\tname    m1      m2    m3    m4    m5    total\t per\t result";
-	 for(i=0;i<n; i++)
-	 {
-	    r[i].disp() ;
-
-	  }
-	getch();
 	}
+};
+	class result : public student
+	{
+		public:
+		int tot,c;
+		char res[20];
+		float per;
+		void calc();
+		void disp();
+	};
+	void result :: calc()
+	{
+		tot=0;
+		c=0;
+		for(i=0;i<5;i++)
+		{
+			tot=tot+m[i];
+		}
+		per=tot/5;
+		for(i=0;i<5;i++)
+		{
+			if(m[i]<30)
+			{
+			c=c+1;
+			}
+		}
+
+	if(c==0)
+	{
+		if(per>=70)
+		{
+			strcpy(res,"A");
+		}
+		else if(per>=60 && per<70)
+		{
+			strcpy(res,"B");
+		}
+		else if(per>=50 && per<60)
+		{
+			strcpy(res,"C");
+		}
+		else if(per>=40 && per<50)
+		{
+			strcpy(res,"D");
+		}
+	}
+	if(c==1 || c==2)
+	{
+		strcpy(res,"ATKT");
+	}
+	if(c>2)
+	{
+		strcpy(res,"FAIL");
+	}
+}
+
+	void result :: disp()
+	{
+
+		cout<<endl<<setw(10)<<no<<setw(5)<<name<<setw(5)<<m[0]<<setw(5)<<m[1]<<setw(5)<<m[2]<<setw(5)<<m[3]<<setw(5)<<m[4]<<setw(7)<<tot<<setw(5)<<per<<setw(5)<<res;
+	}
+	void main()
+	{
+		int i=0,n;
+		clrscr();
+		cout<<"\n enter the no of student:";
+		cin>>n;
+		result r[50];
+		for(i=1;i<=n;i++)
+		{
+		r[i].get();
+		}
+		cout<<"\n"<<setw(10)<<"number"<<setw(5)<<"name"<<setw(7)<<"M1"<<setw(5)<<"M2"<<setw(5)<<"M3"<<setw(5)<<"M4"<<setw(5)<<"M5"<<setw(7)<<"total"<<setw(5)<<"per"<<setw(7)<<"result";
+		cout<<endl<<"=============================================================================="<<endl;
+		for(i=1;i<=n;i++)
+		{
+		r[i].calc();
+		r[i].disp();
+		}
+		getch();
+	}
+
+
+
+

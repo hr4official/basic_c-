@@ -1,0 +1,36 @@
+#include<iostream.h>
+#include<conio.h>
+class stud
+{
+      int no,s;
+      char name[20],dept[20];
+      public : void get()
+	{
+		cout<<"\n enter the emp no:";
+		cin>>no;
+		cout<<"\n enter the emp name:";
+		cin>>name;
+		cout<<"\n enter the emp dept:";
+		cin>>dept;
+		cout<<"\n enter the emp salary:";
+		cin>>s;
+	}
+       public : void disp()
+	{
+		cout<<"\n \t Employee Information ";
+		cout<<"----------------------------------";
+		cout<<"\n Employee roll no is :"<<no;
+		cout<<"\n Employee name is :"<<name;
+		cout<<"\n Employee dept is :"<<dept;
+		cout<<"\n Employee salary is :"<<s;
+		cout<<"----------------------------------";
+	}
+};
+void main()
+{
+	clrscr();
+	       stud s1;
+		s1.get();
+		s1.disp();
+	getch();
+}

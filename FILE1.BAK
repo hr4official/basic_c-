@@ -1,0 +1,26 @@
+#include<fstream.h>
+#include<iostream.h>
+//using namespace std;
+int main()
+{
+	char data[100];
+	ofstreamoutfile;
+	outfile.open("std.text");
+
+	cout<<"\n Writing to the file";
+	cout<<"\n enter your name";
+	cin.getline(data,100);
+
+	outfile<<data<<endl;
+	cout<<"\n enter your age:";
+	cin>>data;
+	//cin ignore();
+	outfile<<data<<endl;
+	outfile.close();
+
+	if streaminfile;
+	infile.open("std.text");
+	cout<<"\n Reading from the file";
+	infile>>data;
+	return 0;
+}
