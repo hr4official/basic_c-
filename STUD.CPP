@@ -1,0 +1,28 @@
+#include<iostream.h>
+#include<conio.h>
+class stud
+{
+   int no;
+   char name[20] ;
+ public : void read()
+   {
+   cout<<"Enter the Student Roll No";
+   cin>>no;
+   cout<<"Enter the Student Name";
+   cin>>name;
+   }
+public : void disp()
+   {
+   cout<<"\n Student Roll No is::"<<no;
+
+   cout<<"\n Student Name is::"<<name;
+    }
+   };
+   void main()
+   {
+      clrscr();
+      stud s1;
+      s1.read();
+      s1.disp();
+     getch();
+   }
